@@ -1,0 +1,69 @@
+Prvo što moramo primijetiti za donjeti bilo kakve zaključke o ovome projektu su neka od ograničenja u odnosu na
+generalnije probleme koje nalazimo u praksi.
+U ovome smo projektu pokušali aproksimirati funkciju iz danih točaka kojima je bio pridodan određeni šum, no funkcija
+koju smo aproksimirali je relativno jednostavna u odnosu na funkcije na koje često nailazimo u praksi, za početak već
+iz razloga što je ovisila o samo jednoj varijabli te je bila beskonačno puta derivabilna, no te su nam činjence
+omogućile da dobijemo relativno dobre aproksimacije s malim brojem podataka za treniranje i testiranje (100 točaka za
+treniranje i 20 za testiranje). Na taj smo način željeli simulirati greške u kompliciranijim slučajevima gdje unatoč
+velikom broju podataka ne bismo uspjeli savršenu aproksimaciju te izbjeći overfittanje koje bismo lako mogli dobiti.
+
+U ovome ću odjeljku nakratko objasniti do kojih sam saznanja došao istražujući i primijenjući različite modele umjetne
+inteligencije. Sva vremena i greške su zapisani u dokumentu vremena_primjer.txt, dok će se vremena i greške nakon
+pokretanja programa zapisivati u dokumentu vremena.txt
+Za linearnu regresiju, a onda i polinimijalnu regresiju zaključak je da su veoma brze u odnosu na ostale
+metode, no to je, kao i relativno velika greška, bilo i za očekivati te je stoga njih idealno korisitit u slučajevima
+kada nam je precizna aproksimacija manje bitna, već nam je bitan trend ili imamo iznimno puno podataka te trebamo doći
+do nekih osnovnih spoznaja o njima u kratkome vremenu. Nadalje, za KNN metodu zaključujemo da je iznimno brza, čak i
+brža od linearne regresije u ovome slučaju te pruža izuzetno malu grešku a osim toga je i iznimno versatilna te ju se
+može primijeniti na jako širokom rasponu problema, uz naravno nedostatak da vrijeme izvršavanje jako raste s brojem
+podataka za treniranje. Što se XGBoost modela tiče, po vremenima i grešci je najbliži KNN modelu, iako je u ovome
+slučaju KNN još uvijek oko deset puta brži te su po preciznosti vrlo bliski, primijetio sam da ukoliko povećamo broj
+podataka za treniranje, vrijeme izvršavanje raste sporije od ostalih metoda. Zaključujem da je za ovaj primjer
+XGBoost model vjerojatno najisplativiji za koristiti, no po pročitanome sam saznao da na većim skupovima podataka vrlo
+lako dođe do pretreniranosti te se zato treba na to obraćati više pažnje.
+
+Za razliku od linearne i polinomijalne regresije, neuronske su mreže puno primjenjivije na veće količne podataka kod
+kojih nam je bitna manja greška. Neuronske su mreže iznimno versatilne te se s manjim izmjenama ili drukčijoj
+implementaciji nalaze često u pozadini drugih metoda. Mogu se primijeniti na širok spektar problema te su s obzirom na
+jednostavnost ovog problema prekomplicirane i prespore s obzirom na grešku koja se njima dobiva. Njihova prednost u
+odnosu na druge promatrane metode je što vrijeme izvršavanje sporije raste u ovisnosti o broju podataka što je iznimno
+korisno u realnim slučajevima iz prakse gdje nam je skup podataka za treniranje iznimno velik te se zapravo stoga često
+i koriste u pozadini kod nekih metoda. Kada imamo velik broj podataka koje bismo trebali aproksimirati, pokazalo se u
+našem primjeru (program neuronska_mreza2.py), ali i u drugim primjerima da je najbolja metoda za smanjiti grešku
+uz dodavanje većeg broja neurona u sloj dodavanje novih slojeva, no to može dovesti do pretreniranosti ili
+potreniranosti. Problem dodavanja dodatnih slojeva neurona u model, što onda zahtjeva eksponencijalno više podataka za
+treniranje modela kako bi se izbjegli navedeni problemi nazivamo prokletstvo dimenzionalnosti.
+Do toga dolazi jer što skup podataka ima više značajki, odnosno dimenzija, on postaje rjeđi u visokodimenzionalnom
+prostoru te to onda otežava algoritmima strojnog učenja identificiranje smislenih obrazaca u tim podacima.
+
+Za borbu protiv prokletstva dimenzionalnosti može se koristiti nekoliko tehnika. Jedan pristup je izbor značajki ili
+smanjenje dimenzionalnosti, gdje odabiremo najvažnije značajke ili smanjujemo broj dimenzija u skupu podataka. Drugi
+pristup je regularizacija, pri čemu funkciji gubitka dodajemo kazneni izraz kako bismo obeshrabrili prekomjerno
+opremanje. Konačno, možemo koristiti više podataka za obuku modela, što može pomoći u smanjenju razrijeđenosti
+visokodimenzionalnog prostora.
+
+U radu Approximation Rate For Neural Networks With General Activation Functions, Jonathan W. Siegel i Jinchao Xu, 2021.
+pisci pokazuju da plitke neuronske mreže mogu pobijediti prokletsvo dimenzionalnosti pri aproksimaciji jako glatkih
+funkcija i to s općenitom aktivacijskom funkcijom te vrlo dobrom točnošću koja će ovisiti o broju neurona u modelu.
+Primjerice, pokazalo se da u neuronskim mrežama s dva sloja možemo za mnogo najpopularnijh aktivacijskih funkcija
+dobiti aproksimacijsku brzinu u O(n^-1/2). Također u radu pokažu i da možemo maknuti propadanje iz aktivacijske
+funkcije uz samo malo slabiji rezultat- aproksimacijska brzina bude u O(n^-1/4). Ja sam nažalost u svojim primjerima
+došao do zaključka da je najbolji način za dobiti dobru aproksimaciju funkcije pomoću neuronske mreže kombinacija većeg
+broja neurona i većeg broja slojeva, no samo do jedne točke nakon koje se greške na rubovima povećavaju što nam u ovom
+slučaju nije u interesu. Jedna od mogućnosti za ovakav zaključak je i ta što je u pitanju bio zaista malen broj podataka
+te, premda je zadovoljavala uvjete teorema iz rada, izuzetno jednostavna funkcija koju je poprilično lako aproksimirati.
+
+Ovaj bi se rad nakon početnih razmatranja različitih metoda i nekih osnovnih njihovih prednosti i mana kretao u smjeru
+predviđanja kretanja cijena dionica ili pak nekretnina, no tu je bitno napomenuti da one ovise o mnogo parametara koji
+još pritom variraju ovisno koji dio tržišta i u kojem peridu promatramo te se stoga predviđanje sastoji od puno više
+podataka i parametara za koje onda trebaju složeniji modeli, a preporuča se i kombiniranje više različitih metoda. To
+je sve veoma teško zbog čega i najveći stručnjaci često budu u krivu sa svojim predviđanjima.
+
+U datoteci ostali primjeri su neki od ostalih primjera koje sam isprobao prije nego što sam zaključio da je za ovaj
+specifičan primjeri XGBoost model najbolji te ti primjeri stoga nisu detaljnije obrađeni. Cilj je rada bilo proučavanje
+rada različitih modela za aproksimaciju funkcija te je zaključak da odabir modela jako ovisi o značajkama funkcije koju
+želimo aproksimirati zbog čega je bitno poznavati problem koji želimo rješiti te prednosti, mane i karakteristike kako
+podataka na kojim treniramo model, tako i modela koje namjeravamo koristiti. Uz to je velika prednost razumijevanje što
+većeg broja modela kako bismo u svakom trenutku mogli odabrati onaj koji je najbolji za naš specifičan slučaj te da
+znamo kako što efikasnije primjeniti više modela prilikom rješavanja istog problema, što se u praksi često pokaže kao
+najbolje rješenje.

@@ -1,0 +1,23 @@
+U metodi linearne regresije ulazne podatke aproksimiramo funkcijom stupnja jedan, odnosno funckijom
+        f(x) = a*x + b.
+Parametri a i b se u metodi linearne regresije nalaze pomoću metode običnih najmanjih kvadrata.
+U toj metodi u zapravo minimiziramo normu od vektora
+        Y - X*a,
+gdje su vektori X i Y skupovi svih testnih vrijednosti od x, odnosno y stavljenih u vektor
+Minimiziranje norme, odsnosno traženje parametra a činimo pomoću
+        np.linalg.inv(X.T @ X) @ X.T @ y,
+što smo dobili iz jednadžbe
+        (Y - X*a).T @ X = 0,
+koja se pak dobije pomoću projekcija vektora na potprosotor, odnosno u ovome slučaju na ravninu
+Y - X*a je vektor okomit na ravninu projekcije kojeg množimo s vektorom X te ako su oni ortogonalni,
+što mi želimo da budu, moramo dobiti 0
+
+
+Polinomska regresija slična je linearnoj regresiji, osim što umjesto pravca podacima prilagođavamo krivulju.
+Ideja je aproksimirati podatke s polinomskom funkcijom stupnja n, odnosno u ovom slučaju fjom stupnja 2
+        f(x) = a*x^2 + b*x + c
+Da bismo to učinili, počinjemo konstruiranjem matrice X koja sadrži potencije ulazne varijable x do stupnja n.
+Na primjer, za n = 2, X je matrica s tri stupca: prvi su stupac sve jedinice (što odgovara članu presjeka),
+drugi stupac bi bio x, a treći stupac bi bio x^ 2.
+Nakon što smo konstruirali matricu X, upotrijebljavamo istu metodu kao u linearnoj regresiji kako bismo pronašli
+parametre koji minimiziraju zbroj kvadrata pogrešaka između predviđenih vrijednosti i stvarnih vrijednosti.

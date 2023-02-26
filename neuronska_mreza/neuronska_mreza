@@ -1,0 +1,24 @@
+Neuronske mreže su klasa modela strojnog učenja koji su inspirirani strukturom i funkcijom ljudskog mozga.
+U pozadini, neuronska mreža je matematička funkcija koja uzima skup ulaznih podataka i proizvodi izlaz na temelju
+skupa naučenih parametara. Mreža se sastoji od više slojeva međusobno povezanih čvorovima ili neuronima, od kojih
+svaki izvodi jednostavno računanje na svojim ulazima.
+
+Prvi sloj neuronske mreže je ulazni sloj, koji prima neobrađene ulazne podatke. Sljedeći slojevi su skriveni slojevi,
+koji primjenjuju nelinearnu transformaciju na izlaze prethodnog sloja. Završni sloj je izlazni sloj, koji proizvodi
+konačni izlaz mreže. Parametri mreže, uključujući težine i pristranosti svakog neurona, uče se kroz proces koji se
+zove backpropagation, u kojem se pogreška između predviđenog izlaza i pravog izlaza širi unatrag kroz mrežu kako bi se
+prilagodili parametri.
+
+Jedna od prednosti neuronskih mreža je njihova sposobnost učenja složenih nelinearnih odnosa između ulaznih i izlaznih
+podataka. To ih čini posebno korisnima za zadatke kao što su prepoznavanje slike i govora ili obrada prirodnog jezika.
+Također su vrlo fleksibilni i mogu se koristiti u širokom rasponu aplikacija, od računalnog vida do financija i
+zdravstvene skrbi.
+
+Međutim, neuronske mreže mogu biti računalno skupe za treniranje i mogu zahtijevati velike količine podataka za dobru
+generalizaciju. Također mogu biti skloni prekomjernom opremanju, pri čemu mreža uči pamtiti treninžne podatke umjesto
+da generalizira nove podatke. Osim toga, neuronske mreže može biti teško protumačiti, što otežava razumijevanje kako su
+došle do određenog predviđanja.
+
+Neuronske mreže preporučuje se koristiti kada imamo veliki skup podataka i imamo posla sa složenim nelinearnim odnosom
+između ulaznih i izlaznih varijabli. Također su prikladne za zadatke koji zahtijevaju prepoznavanje ili predviđanje
+uzoraka, kao što je prepoznavanje slike ili govora, obrada prirodnog jezika i predviđanje vremenskih nizova.

@@ -1,0 +1,29 @@
+LSTM je vrsta rekurentne neuronske mreže (RNN) koja je sposobna učiti dugoročne međuovisnosti u sekvencijalnim
+podacima. Posebno je učinkovit u obradi sekvencijalnih podataka kao što su vremenski nizovi, prirodni jezik,
+govor i prepoznavanje rukopisa.
+
+Glavna ideja iza LSTM-a je korištenje memorijske ćelije za praćenje dugoročnih međuovisnosti.
+Memorijska ćelija je vektor u koji se može pisati, čitati ili brisati. Njome upravljaju tri vrata: ulazna vrata,
+vrata zaboravljanja i izlazna vrata.
+Ulazna vrata kontroliraju količinu novih informacija koje se dodaju u memorijsku ćeliju. Vrata zaboravljanja
+kontroliraju količinu informacija koja se uklanja iz memorijske ćelije. Izlazna vrata kontroliraju količinu
+informacija koja se čita iz memorijske ćelije.
+Vrata za unos i zaboravljanje koriste sigmoidnu aktivacijsku funkciju za proizvodnju vrijednosti između 0 i 1
+koje određuju količinu informacija koje treba dodati ili ukloniti iz memorijske ćelije. Izlazna vrata koriste
+hiperboličku aktivacijsku funkciju tan za proizvodnju vrijednosti između -1 i 1 koje određuju količinu informacija
+koje treba pročitati iz memorijske ćelije.
+
+Jedna od prednosti LSTM-a je njegova sposobnost hvatanja dugoročnih ovisnosti u sekvencijalnim podacima, što je
+teško za tradicionalne RNN-ove. To se postiže upotrebom memorijske ćelije i tri vrata, koja omogućuju modelu
+selektivno dodavanje, uklanjanje i čitanje informacija iz memorijske ćelije prema potrebi.
+
+Još jedna snaga LSTM-a je njegova sposobnost da se nosi s nestajućim gradijentima, što je inače čest problem u
+tradicionalnim RNN-ovima. To je moguće zahvaljujući vratima zaboravljanja koja omogućuju modelu selektivno
+odbacivanje nevažnih informacija, što smanjuje utjecaj nestajanja gradijenata na sposobnost učenja modela.
+
+Međutim, slabost LSTM-a je to što može biti računalno skupo za obuku i zahtijeva veliku količinu podataka za
+postizanje dobrih performansi. Osim toga, tumačenje unutarnjeg rada modela može biti teško zbog složenosti modela.
+
+LSTM se preporučuje koristiti kada zadatak uključuje obradu sekvencijalnih podataka, osobito u slučajevima kada
+model treba uhvatiti dugoročne ovisnosti. Uspješno se koristi u širokom rasponu aplikacija kao što su obrada
+prirodnog jezika, prepoznavanje govora i opisi slika.

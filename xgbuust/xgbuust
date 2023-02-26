@@ -1,0 +1,15 @@
+XGBoost (Extreme Gradient Boosting) popularan je i moćan algoritam za strojno učenje koji se često koristi
+za rješavanje složenih problema regresije i klasifikacije.
+XGBoost se temelji na konceptu povećanja gradijenta, koji uključuje kombiniranje višestrukih slabih modela
+kako bi se stvorio precizniji i moćniji model.
+
+Jedna od prednosti XGBoost-a je njegova sposobnost rukovanja i linearnim i nelinearnim odnosima između značajki
+i ciljne varijable. Osim toga, XGBoost je relativno brz i učinkovit, posebno u usporedbi s drugim popularnim
+algoritmima strojnog učenja kao što su Support Vector Machines (SVM) i Random Forest.
+XGBoost također uključuje nekoliko značajki koje pomažu u sprječavanju prekomjernog opremanja, kao što su
+reguliranje i rano zaustavljanje.
+
+Međutim, jedna od slabosti XGBoost-a je ta da može biti sklon overfittanju ako hiperparametri nisu
+pažljivo podešeni. Osim toga, XGBoost možda neće raditi tako dobro kao drugi algoritmi na vrlo malim skupovima
+podataka ili na skupovima podataka s vrlo visokim stupnjem rijetkosti. Konačno, XGBoost može biti računalno
+skup za obuku na velikim skupovima podataka, što može otežati skaliranje na vrlo velike skupove podataka.

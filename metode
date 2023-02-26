@@ -1,0 +1,14 @@
+Prokletstvo dimenzionalnosti odnosi se na činjenicu da kako se broj značajki ili dimenzija u skupu podataka povećava,
+količina podataka potrebnih za treniranje modela koji dobro generalizira eksponencijalno raste. Drugim riječima, što
+skup podataka ima više značajki, on postaje rjeđi u visokodimenzionalnom prostoru, što otežava algoritmima strojnog
+učenja identificiranje smislenih obrazaca.
+
+Prokletstvo dimenzionalnosti može dovesti do pretjeranog prilagođavanja, gdje se model previše uklapa u podatke o obuci
+i ne generalizira dobro na nove podatke. To također može dovesti do nedovoljnog uklapanja, gdje je model previše
+jednostavan da bi obuhvatio složenost podataka.
+
+Za borbu protiv prokletstva dimenzionalnosti može se koristiti nekoliko tehnika. Jedan pristup je izbor značajki ili
+smanjenje dimenzionalnosti, gdje odabiremo najvažnije značajke ili smanjujemo broj dimenzija u skupu podataka. Drugi
+pristup je regularizacija, pri čemu funkciji gubitka dodajemo kazneni izraz kako bismo obeshrabrili prekomjerno
+opremanje. Konačno, možemo koristiti više podataka za obuku modela, što može pomoći u smanjenju razrijeđenosti
+visokodimenzionalnog prostora.

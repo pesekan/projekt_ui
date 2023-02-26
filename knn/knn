@@ -1,0 +1,22 @@
+K-Najbližih susjeda (KNN) je neparametarski algoritam strojnog učenja koji se koristi za probleme klasifikacije
+i regresije. Temelji na instanci, gdje se skup podataka za obuku pohranjuje i koristi za predviđanje novih
+podatkovnih točaka.
+
+KNN radi tako da pronalazi k-najbližih podataka novoj podatkovnoj točki u skupu podataka za obuku,a zatim
+koristi njihove vrijednosti za predviđanje vrijednosti nove podatkovne točke.
+Vrijednost k je hiperparametar koji određuje broj susjeda koje treba uzeti u obzir. Izračunava se udaljenost između
+nove podatkovne točke i svake točke u skupu podataka za obuku, a odabiru se k-najbliže točke s najkraćom udaljenosti.
+Vrijednost nove podatkovne točke zatim se dodjeljuje na temelju vrijednosti većine k-najbližih susjeda.
+
+Prilikom aproksimacije funkcije pomoću KNN-a, algoritam pokušava pronaći k-najbližih susjeda nove podatkovne
+točke i zatim predviđa izlaznu vrijednost nove podatkovne točke na temelju prosječne ili srednje vrijednosti
+izlaznih vrijednosti k-najbližih susjeda.
+
+KNN se preporučuje za probleme gdje podaci nisu linearno odvojivi ili gdje postoje složene granice odlučivanja.
+Također je korisno da veličina skupa podataka za obuku bude mala. KNN je jednostavan za implementaciju i ne
+donosi nikakve pretpostavke o distribuciji podataka, što ga čini vrlo svestranim algoritmom.
+
+Međutim, KNN ima neke slabosti, kao što je činjenica da može biti računalno skup kada je veličina skupa podataka
+za obuku velika, budući da treba izračunati udaljenost između nove podatkovne točke i svih točaka u skupu podataka
+za obuku. Osim toga, KNN je osjetljiv na izbor metrike udaljenosti, a odabir pogrešne metrike udaljenosti može
+rezultirati lošom izvedbom te također može biti osjetljiv na izbor vrijednosti k.
